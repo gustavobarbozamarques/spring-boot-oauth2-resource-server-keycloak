@@ -10,7 +10,7 @@ Keycloak: ``` http://localhost:8080/ ```
 
 Resource Server API: ``` http://localhost:8081/ ```
 
-### Keycloak
+### Keycloak (data imported from ``` keycloak-myrealm.json ``` file)
 
 Client Roles:
 ![Alt text](docs/keycloak_client_roles.png?raw=true)
