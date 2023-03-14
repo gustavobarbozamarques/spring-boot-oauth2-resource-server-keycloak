@@ -8,7 +8,7 @@ TODO
 
 Keycloak: ``` http://localhost:8080/ ```
 
-Resource Server API: ``` http://localhost:8080/ ```
+Resource Server API: ``` http://localhost:8081/ ```
 
 ### Keycloak
 
