@@ -1,0 +1,38 @@
+version: '3'
+
+services:
+  app:
+    image: 'spring-boot-oauth2-resource-server-keycloak'
+    build:
+      context: .
+    container_name: spring-boot-oauth2-resource-server-keycloak
+    ports:
+      - 8081:8081
+    depends_on:
+      - keycloak
+    environment:
+      - KEYCLOAK_CERTS_URL=http://keycloak:8080/realms/myrealm/protocol/openid-connect/certs
+      - KEYCLOAK_CLIENT_NAME=myclient
+    networks:
+      - spring-boot-oauth2-resource-server-keycloak-network
+
+  keycloak:
+    image: 'quay.io/keycloak/keycloak:21.0.1'
+    environment:
+      KEYCLOAK_ADMIN: admin
+      KEYCLOAK_ADMIN_PASSWORD: admin
+    volumes:
+      - type: bind
+        source: ./keycloak-myrealm.json
+        target: /opt/keycloak/data/import/keycloak-myrealm.json
+    ports:
+      - 8080:8080
+    command:
+      - start-dev
+      - --import-realm
+    networks:
+      - spring-boot-oauth2-resource-server-keycloak-network
+
+networks:
+  spring-boot-oauth2-resource-server-keycloak-network:
+    driver: bridge

@@ -4,7 +4,9 @@
 
 ### Run project
 
-TODO
+``` docker-compose build ```
+
+``` docker-compose up ```
 
 Keycloak: ``` http://localhost:8080/ ```
 
@@ -26,7 +28,7 @@ User 1 Roles:
 Try to access Resource Server /admin endpoint Unauthenticated (401):
 ![Alt text](docs/postman_resource_server_unauthenticated.png?raw=true)
 
-Get Access Token:
+Get Access Token from Keycloak:
 ![Alt text](docs/postman_get_acess_token.png?raw=true)
 
 Access Resource Server /admin endpoint with access token (200):
